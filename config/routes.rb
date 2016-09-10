@@ -5,4 +5,8 @@ Rails.application.routes.draw do
   resources :sessions, only: [:new, :create]
 
   get "/dashboard", to: "users#dashboard", as: "dashboard"
+
+  namespace :admin do
+    get "/dashboard", to: "users#dashboard", as: "dashboard"
+  end
 end
