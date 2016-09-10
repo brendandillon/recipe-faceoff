@@ -1,0 +1,16 @@
+<h1>New Challenge</h1>
+<%= form_for [:admin, @challenge] do |f| %>
+  <%= f.text_field :theme, placeholder: "Theme" %>
+  <ol>
+    <% @ingredients.each do |ingredient| %>
+      <li>
+      <%= f.fields_for :ingredients, ingredient do |ing_field| %>
+        <%= ing_field.text_field :name, placeholder: "Ingredient" %>
+        <%= ing_field.text_field :unit, placeholder: "Unit" %>
+        <%= ing_field.text_field :unit_cost, placeholder: "Unit Cost" %>
+      <% end %>
+      </li>
+    <% end %>
+  </ol>
+  <%= f.submit %>
+<% end %>
